@@ -1,0 +1,151 @@
+<style type="less">
+  .title{
+    text-align: center;
+    color: rgb(59, 106, 59);
+  }
+  .swiper-main{
+    width: 100%;
+    height: 400rpx;
+    display: block;
+    position: relative;
+    top: 50rpx;
+    background: #f0f0f0;
+  }
+  .img-slide{
+    width: 100%;
+    height: inherit;
+  }
+  .page{
+    margin-top: 50rpx;
+  }
+  .weui-article__p{
+    font-family: sans-serif;
+  }
+  .weui-flex__item{
+    text-align: center;
+  }
+  .weui-flex{
+      padding-top: 50rpx;
+  }
+</style>
+<template>
+    <view class='title'>陕西旅游一条通</view>
+    <swiper class='swiper-main' circular="{{circular}}" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <repeat for="{{imgUrls}}" >
+            <swiper-item>
+                <image src="{{item}}" class="img-slide"/>
+            </swiper-item>
+        </repeat>
+    </swiper>
+    <view class="page">
+            <view class="weui-article">
+                <view class="weui-article__section">
+                    <view class="weui-article__h3">简介</view>
+                    <view class="weui-article__p">
+                        西安钟楼位于西安市中心，明城墙内东西南北四条大街的交汇处，是中国现存钟楼中形制最大、
+                        保存最完整的一座。建于明太祖洪武十七年（1384年），初建于今广济街口，与鼓楼相对，明神宗万历十年（1582年）整体迁移于今址。
+                        钟楼建在方型基座之上，为砖木结构，重楼三层檐，四角攒顶的形式，总高36米，占地面积1377平方米。
+                    </view>
+                </view>
+                <view class="weui-flex">
+                    <view class="weui-flex__item">
+                          <button class="weui-btn mini-btn" type="warn" size="mini" @tap="buyTicket">门票购买</button>
+                    </view>
+                    <view class="weui-flex__item">
+                          <button class="weui-btn mini-btn" type="warn" size="mini" @tap="trave">旅游攻略</button>
+                    </view>
+                    <view class="weui-flex__item">
+                          <button class="weui-btn mini-btn" type="warn" size="mini" @tap="food">陕西美食</button>
+                    </view>
+                </view>
+            </view>
+    </view>
+</template>
+
+<script>
+    import wepy from 'wepy';
+
+    export default class Index extends wepy.page {
+        config = {
+            navigationBarTitleText: '简介'
+        }
+        data = {
+            userInfo: {
+                nickName: '加载中...'
+            },
+            imgUrls: [
+                '../images/zhonglou.jpg',
+                '../images/dayanta.jpg',
+                '../images/huashan.jpg',
+                '../images/datangfurongyuan.jpg',
+                '../images/bingmayong.jpg'
+            ],
+            indicatorDots: true,
+            autoplay: true,
+            interval: 5000,
+            duration: 1000,
+            circular: true
+        }
+        methods = {
+            buyTicket () {
+                // wepy.navigateTo({
+                  //   url: 'food'
+                // });
+                wepy.showModal({
+                    title: '提示',
+                    content: '门票购买'
+                });
+            },
+            trave () {
+                // wepy.showModal({
+                //     title: '提示',
+                //     content: '旅游攻略'
+                // });
+                wx.switchTab({
+                    url: 'travelist'
+                });
+            },
+            food () {
+                // wepy.showModal({
+                //     title: '提示',
+                //     content: '陕西美食'
+                // });
+                wx.switchTab({
+                    url: 'foodlist'
+                });
+            },
+            testRequst () {
+                // wepy 使用方式
+                // request 接口从只接收Object变为可接收String
+                // wx.request('http://localhost:8001/fengxin-web/web/app/list?token=ee94eb48d2ca45d4a32b0e30e9037f78').then((d) => console.log(d));
+                wx.request({
+                    url: 'http://localhost:8001/fengxin-web/web/app/list?token=ee94eb48d2ca45d4a32b0e30e9037f78',
+                    success: function (data) {
+                        console.log(data);
+                    }
+                });
+            }
+        }
+        events = {
+
+        }
+        async onLoad() {
+            //  await wepy.login();
+            //  this.userInfo = await wepy.getUserInfo();
+            // wx.getSystemInfo({
+            //     success (res) {
+            //         console.log(res.model);
+            //         console.log(res.pixelRatio);
+            //         console.log(res.windowWidth);
+            //         console.log(res.windowHeight);
+            //         console.log(res.language);
+            //         console.log(res.version);
+            //         console.log(res.platform);
+            //     }
+            // });
+            console.log(wx.getSystemInfoSync()['statusBarHeight']);
+
+            console.log('加载完成...');
+        }
+    }
+</script>

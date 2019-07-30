@@ -1,0 +1,155 @@
+<style type="less">
+.weui-flex{
+  margin: 30rpx 30rpx;
+  box-shadow:0px 10px 10px #e9e9e9;
+}
+.food-list {
+  text-align: center;
+  padding: 10rpx 30rpx;
+}
+.food-title{
+  font-family: Arial,Verdana,Sans-serif;
+  font-size: 16px;
+  margin-bottom: 3px;
+}
+.food_info{
+  font-size: 12px;
+  color: #888;
+  text-overflow:ellipsis;
+}
+.food-desc{
+  width: auto;
+  height: 100%;
+}
+.img-list{
+  width: 100%;
+  height: 180rpx;
+  border-radius: 10rpx;
+  object-fit: cover;
+}
+.swiper-main{
+  width: 100%;
+  height: 400rpx;
+  display: block;
+  position: relative;
+  background: #f0f0f0;
+  margin-bottom: 40rpx;
+}
+.img-slide{
+  width: 100%;
+  height: inherit;
+}
+.search-bar{
+  margin: 30rpx 30rpx;
+}
+</style>
+<template>
+  <swiper class='swiper-main' circular="{{circular}}" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <repeat for="{{imgUrls}}" >
+          <swiper-item>
+              <image src="{{item}}" class="img-slide"/>
+          </swiper-item>
+      </repeat>
+  </swiper>
+  <view class='search-bar'>
+    <input placeholder="搜索"/>
+  </view>
+  <repeat for="{{foodList}}" >
+      <view class="weui-flex"  @tap="foodInfo({{item.id}})">
+          <view class="weui-flex__item">
+              <view class="food-list">
+                  <image src='{{item.url}}' class='img-list'></image>
+              </view>
+          </view>
+          <view class="weui-flex__item">
+              <view class="food-desc">
+                  <view class="food-title">{{item.name}}</view>
+                  <view class="food_info">美食简介：{{item.synopsis}}</view>
+              </view>
+          </view>
+      </view>
+  </repeat>
+</template>
+<script>
+    import wepy from 'wepy';
+
+    export default class Foodlist extends wepy.page {
+        config = {
+            navigationBarTitleText: '陕西美食'
+        }
+        data = {
+            imgUrls: [
+                '../images/kudaimain.jpg',
+                '../images/saozimian.jpg',
+                '../images/huluji.jpg'
+            ],
+            foodList: [
+                {
+                    id: 1,
+                    url: '../images/liangpi.jpg',
+                    name: '陕西凉皮',
+                    synopsis: '陕西特色美食榜首第一，和冰峰、肉夹馍称为三秦套餐',
+                    collect: 125
+                },
+                {
+                    id: 2,
+                    url: '../images/huluji.jpg',
+                    name: '长安葫芦鸡',
+                    synopsis: '西安市的传统名菜，18年9月，被评为“中国菜”之陕西十大经典名菜',
+                    collect: 125
+                },
+                {
+                    id: 3,
+                    url: '../images/kudaimain.jpg',
+                    name: 'biangbiang面',
+                    synopsis: '陕西关中特色传统风味面食，是传统的陕西裤带面',
+                    collect: 125
+                },
+                {
+                    id: 4,
+                    url: '../images/saozimian.jpg',
+                    name: '岐山臊子面',
+                    synopsis: '陕西省特色传统面食、著名西府小吃，以宝鸡的岐山臊子面最为正宗',
+                    collect: 125
+                },
+                {
+                    id: 5,
+                    url: '../images/fenzhengrou.jpg',
+                    name: '周至粉蒸肉夹馍',
+                    synopsis: '具有地方特色的美食，和肉夹馍齐名',
+                    collect: 125
+                },
+                {
+                    id: 6,
+                    url: '../images/latiaozi.jpg',
+                    name: '陕西棍棍面',
+                    synopsis: '关中地区特色传统风味名吃。当地人非常喜好的面食，口感爽滑、劲道',
+                    collect: 125
+                },
+                {
+                    id: 7,
+                    url: '../images/badawan.jpg',
+                    name: '关中八大碗',
+                    synopsis: '从悠久的历史及饮食文化中提炼而来的菜品，口感酥嫩、味道醇厚',
+                    collect: 125
+                }
+            ],
+            indicatorDots: true,
+            autoplay: true,
+            interval: 5000,
+            duration: 1000,
+            circular: true
+        }
+        methods = {
+            foodInfo (id) {
+                console.log('navigateId:'+id);
+                wepy.navigateTo({
+                    url: 'foodinfo'
+                });
+            }
+        }
+        onLoad () {
+            console.log('加载完成...');
+        }
+    }
+</script>

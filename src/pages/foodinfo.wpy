@@ -1,0 +1,103 @@
+<style type="less">
+  .swiper-main{
+    width: 100%;
+    height: 400rpx;
+    display: block;
+    position: relative;
+    background: #f0f0f0;
+  }
+  .img-slide{
+    width: 100%;
+    height: inherit;
+  }
+  .page{
+    margin-top: 50rpx;
+  }
+  .weui-article__p{
+    font-family: sans-serif;
+  }
+  .weui-flex{
+    margin-bottom: 20rpx;
+  }
+  .about-introduce{
+    padding-left: 30rpx;
+    font-weight:bold;
+    font-size: 14px;
+  }
+  .weui-article__h3{
+    font-weight: bold;
+  }
+  .weui-media-box__desc{
+    color: black;
+  }
+</style>
+<template>
+    <swiper class='swiper-main' autoplay='true' indicator-dots='true' interval='5000' duration='1000' circular='true'>
+        <swiper-item><image src='../images/liangpi.jpg' class='img-slide'></image></swiper-item>
+        <swiper-item><image src='../images/roujiamo.jpg' class='img-slide'></image></swiper-item>
+        <swiper-item><image src='../images/kudaimain.jpg' class='img-slide'></image></swiper-item>
+        <swiper-item><image src='../images/saozimian.jpg' class='img-slide'></image></swiper-item>
+        <swiper-item><image src='../images/huluji.jpg' class='img-slide'></image></swiper-item>
+    </swiper>
+    <view class="page">
+        <view class="weui-article">
+            <view class="weui-article__section">
+                <view class="weui-article__h3">美食来历简介</view>
+                <view class="weui-article__p">
+                  陕西凉皮历史久远，凉皮传说源于秦始皇时期，比较常见的种类有有麻酱凉皮、秦镇米皮、汉中面皮、岐山擀面皮、面筋凉皮等。
+                </view>
+                <view class="weui-article__h3">消费水平</view>
+                <view class="weui-article__p">
+                  人均20元
+                </view>
+            </view>
+        </view>
+        <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__bd">
+                <view  class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <map class="weui-media-box__thumb" id="map" longitude="113.324520" latitude="23.099994" scale="14"></map>
+                    </view>
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-media-box__desc">地址：陕西省西安市大寨路团结南路53号</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="weui-article">
+            <view class="weui-article__section">
+                <view class="weui-article__h3">相关推荐</view>
+                <view class="weui-flex">
+                    <view class="weui-flex__item"><view class="about-introduce">李四灌汤包</view></view>
+                    <view class="weui-flex__item"><view class="about-introduce">东关肉夹馍</view></view>
+                </view>
+                <view class="weui-flex">
+                    <view class="weui-flex__item"><view class="about-introduce">邢老二肉丸胡辣汤</view></view>
+                    <view class="weui-flex__item"><view class="about-introduce">沙河桥炸馍</view></view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+
+<script>
+    import wepy from 'wepy';
+
+    export default class Foodinfo extends wepy.page {
+        config = {
+            navigationBarTitleText: '美食详情'
+        }
+        data = {
+
+        }
+        methods = {
+
+        }
+        events = {
+
+        }
+        async onLoad() {
+            console.log('加载完成...');
+        }
+    }
+</script>

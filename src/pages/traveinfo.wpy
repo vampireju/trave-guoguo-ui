@@ -1,0 +1,254 @@
+
+<style type="less">
+.page-section{
+  text-align: center;
+  margin: 0 0.8em;
+}
+.title{
+  text-align: center;
+  color: rgb(59, 106, 59);
+  margin-bottom: 50rpx;
+}
+.food-list{
+  text-align: center;
+  padding: 10rpx 10rpx;
+}
+.img-list{
+  width: 100%;
+  height: 150rpx;
+  object-fit: cover;
+}
+.weui-article__h3{
+  font-weight: bold;
+}
+#myVideo{
+  width: 100%;
+}
+.note-info-title{
+  text-align: center;
+  background-color: #f3f2f7;
+  padding: : 10rpx 20rpx;
+  color: #888;
+}
+.note-info-detail{
+  color: #888;
+  font-size: 14px;
+}
+.masonry {
+    display: flex;
+    flex-direction: row;
+}
+.column-title {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+}
+.column-object {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+.column-content {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+}
+</style>
+<template>
+    <view class="page-body">
+        <view class='title'>旅游简介</view>
+        <view class="page-section tc">
+            <video id="myVideo" src="http://mhtclub.com/video/zhonglou_360.mp4" binderror="videoErrorCallback" loop='true'>
+
+            </video>
+        </view>
+        <view class="weui-article">
+            <view class="weui-article__section">
+                <view class="weui-article__h3">景点简介</view>
+                <view class="weui-article__p">
+                  西安钟楼位于西安市中心，明城墙内东西南北四条大街的交汇处，是中国现存钟楼中形制最大、
+                  保存最完整的一座。建于明太祖洪武十七年（1384年），初建于今广济街口，与鼓楼相对，明神宗万历十年（1582年）整体迁移于今址。
+                  钟楼建在方型基座之上，为砖木结构，重楼三层檐，四角攒顶的形式，总高36米，占地面积1377平方米。
+                </view>
+            </view>
+            <view class="weui-article__section">
+              <view class="weui-article__section">
+                  <view class="weui-article__h3">旅游攻略</view>
+                  <view class="weui-article__p">
+                    唐僧（玄奘）藏经处，古都西安的象征
+                  </view>
+                  <view class="weui-article__p">
+                      <image class="img-details" src="../images/datangfurongyuan.jpg" style="height: 180px;width: 100%;" />
+                  </view>
+                  <view class="weui-article__p">
+                      大慈恩寺是唐长安城内宏丽的皇家寺院，建于唐太宗时期，是太子李治为了追念母亲文德皇后而建，并由西行取经归来的玄奘法师担任“首任主持”。
+                  </view>
+                  <view class="weui-article__p">
+                      <image class="img-details" src="../images/zhonglou.jpg" style="height: 180px;width: 100%;" />
+                  </view>
+                  <view class="weui-article__p">
+                      期间，法师督造了大雁塔。玄奘法师在大慈恩寺翻译佛经、弘扬佛法11年，并创立了佛教的“相唯识宗”，使大慈恩寺成为唯识宗（又称“法相宗”）祖庭。
+                  </view>
+              </view>
+                <view class="weui-article__h3">开放时间</view>
+                <view class="weui-article__p">
+                  <view class="note-info-title">3月16日至11月15日</view>
+                  <view class="masonry">
+                      <view class="column-title">
+                          <view class="note-info-detail">周一至周日</view>
+                      </view>
+                      <view class="column-object">
+                          <view class="note-info-detail">全天</view>
+                      </view>
+                      <view class="column-content">
+                          <view class="note-info-detail">08:30-19:00，17:30停止入场</view>
+                      </view>
+                  </view>
+                  <view class="note-info-title">11月16日至次年3月15日</view>
+                  <view class="masonry">
+                      <view class="column-title">
+                          <view class="note-info-detail">周一至周日</view>
+                      </view>
+                      <view class="column-object">
+                          <view class="note-info-detail">全天</view>
+                      </view>
+                      <view class="column-content">
+                          <view class="note-info-detail">08:30-19:00，17:00停止入场</view>
+                      </view>
+                  </view>
+                </view>
+            </view>
+            <view class="weui-article__section">
+                <view class="weui-article__h3">门票优待政策</view>
+                <view class="weui-article__p">
+                    <view class="note-info-title">优待政策/适用人群/限制条件</view>
+                    <view class="masonry">
+                        <view class="column-title">
+                            <view class="note-info-detail">免费</view>
+                        </view>
+                        <view class="column-object">
+                            <view class="note-info-detail">老年人</view>
+                        </view>
+                        <view class="column-content">
+                            <view class="note-info-detail">65周岁（含）以上凭身份证老年人</view>
+                        </view>
+                    </view>
+                    <view class="masonry">
+                        <view class="column-title">
+                            <view class="note-info-detail"></view>
+                        </view>
+                        <view class="column-object">
+                            <view class="note-info-detail">儿童</view>
+                        </view>
+                        <view class="column-content">
+                            <view class="note-info-detail">16周岁（含）一下凭身份证或户口本</view>
+                        </view>
+                    </view>
+                    <view class="masonry">
+                        <view class="column-title">
+                            <view class="note-info-detail"></view>
+                        </view>
+                        <view class="column-object">
+                            <view class="note-info-detail">残疾人</view>
+                        </view>
+                        <view class="column-content">
+                            <view class="note-info-detail">凭残疾证</view>
+                        </view>
+                    </view>
+                    <view class="masonry">
+                        <view class="column-title">
+                            <view class="note-info-detail"></view>
+                        </view>
+                        <view class="column-object">
+                            <view class="note-info-detail">现役军人</view>
+                        </view>
+                        <view class="column-content">
+                            <view class="note-info-detail">凭军官证及保障卡（证件需要两个同时出示）</view>
+                        </view>
+                    </view>
+                    <view class="masonry">
+                        <view class="column-title">
+                            <view class="note-info-detail">优惠</view>
+                        </view>
+                        <view class="column-object">
+                            <view class="note-info-detail"></view>
+                        </view>
+                        <view class="column-content">
+                            <view class="note-info-detail">无</view>
+                        </view>
+                    </view>
+                    <view class="masonry">
+                        <view class="column-title">
+                            <view class="note-info-detail">5折</view>
+                        </view>
+                        <view class="column-object">
+                            <view class="note-info-detail">全日制大中小学生（不含成人教育研究生）</view>
+                        </view>
+                        <view class="column-content">
+                            <view class="note-info-detail">凭学生证</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="weui-article__h3">公交信息</view>
+            </view>
+        </view>
+    </view>
+    <view class="weui-flex">
+        <view class="weui-flex__item" @tap="traveInfo">
+            <view class="food-list">
+                <view class="food-picture">
+                    <image src='../images/huashan.jpg' class='img-list'></image>
+                </view>
+                <view class="food-desc">华山</view>
+            </view>
+        </view>
+        <view class="weui-flex__item" @tap="traveInfo">
+            <view class="food-list">
+                <view class="food-picture">
+                    <image src='../images/datangfurongyuan.jpg' class='img-list'></image>
+                </view>
+                <view class="food-desc">大唐芙蓉园</view>
+            </view>
+        </view>
+        <view class="weui-flex__item" @tap="traveInfo">
+            <view class="food-list">
+                <view class="food-picture">
+                    <image src='../images/bingmayong.jpg' class='img-list'></image>
+                </view>
+                <view class="food-desc">兵马俑</view>
+            </view>
+        </view>
+    </view>
+</template>
+
+<script>
+    import wepy from 'wepy';
+
+    export default class Traveinfo extends wepy.page {
+        config = {
+            navigationBarTitleText: '景点',
+        }
+        data = {
+            userInfo: {
+                nickName: '加载中...'
+            }
+        }
+        methods = {
+            traveInfo () {
+                wepy.navigateTo({
+                    url: 'introduction'
+                });
+            },
+            videoErrorCallback () {
+                wepy.showModal({
+                    title: '提示',
+                    content: '视屏播放错误'
+                });
+            }
+        }
+        onLoad() {
+            this.videoContext = wx.createVideoContext('myVideo');
+            console.log('加载完成...');
+        }
+    }
+</script>
